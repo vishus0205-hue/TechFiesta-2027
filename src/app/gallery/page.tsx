@@ -311,7 +311,7 @@ export default function GalleryPage() {
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-tech text-[10px] px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/40 text-yellow-300 flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-yellow-400" />
-                    <span>{activeItem.edition} // {activeItem.categoryLabel}</span>
+                    <span>{`${activeItem.edition} // ${activeItem.categoryLabel}`}</span>
                   </span>
 
                   <button

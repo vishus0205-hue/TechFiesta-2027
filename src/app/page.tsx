@@ -1,9 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ChevronDown } from "lucide-react";
 import Homepage from "@/components/Homepage/Homepage";
 import TechfestHUD from "@/components/TechfestHUD/TechfestHUD";
 

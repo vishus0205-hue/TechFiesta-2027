@@ -19,44 +19,28 @@ export default function TechfestHUD() {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [socialOpen, setSocialOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<string>(
-    isSchedulePage
-      ? "schedule"
-      : isGalleryPage
-      ? "gallery"
-      : isWorkshopsPage
-      ? "workshops"
-      : "home"
-  );
-
-  // Synchronize activeTab on route change
-  useEffect(() => {
-    if (pathname === "/workshops") {
-      setActiveTab("workshops");
-    } else if (pathname === "/gallery") {
-      setActiveTab("gallery");
-    } else if (pathname === "/schedule") {
-      setActiveTab("schedule");
-    }
-  }, [pathname]);
+  const [homeTab, setHomeTab] = useState<string>("home");
+  const activeTab = isSchedulePage
+    ? "schedule"
+    : isGalleryPage
+    ? "gallery"
+    : isWorkshopsPage
+    ? "workshops"
+    : homeTab;
 
   // ScrollSpy: Automatically highlight the menu item matching user's scroll position (on home page)
   useEffect(() => {
     if (isSubPage) {
-      if (isWorkshopsPage) setActiveTab("workshops");
-      if (isGalleryPage) setActiveTab("gallery");
-      if (isSchedulePage) setActiveTab("schedule");
       return;
     }
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
-      const docHeight = document.documentElement.scrollHeight;
 
       // If in Hero / Top section
       if (scrollY < windowHeight * 0.75) {
-        setActiveTab("home");
+        setHomeTab("home");
         return;
       }
 
@@ -71,7 +55,7 @@ export default function TechfestHUD() {
         if (el) {
           const rect = el.getBoundingClientRect();
           if (rect.top <= windowHeight * 0.45 && rect.bottom >= 120) {
-            setActiveTab(sec.tab);
+            setHomeTab(sec.tab);
             return;
           }
         }
@@ -82,7 +66,7 @@ export default function TechfestHUD() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [isSubPage, isWorkshopsPage, isGalleryPage, isSchedulePage]);
+  }, [isSubPage]);
 
   const scrollToSection = (id: string, tabName: string) => {
     // User request: "about and contact should not lead to anywhere"
@@ -90,7 +74,7 @@ export default function TechfestHUD() {
       return;
     }
 
-    setActiveTab(tabName);
+    setHomeTab(tabName);
 
     if (tabName === "schedule") {
       if (isSchedulePage) {

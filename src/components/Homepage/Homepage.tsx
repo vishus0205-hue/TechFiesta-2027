@@ -6,12 +6,7 @@ import {
   Flame, 
   Users, 
   Layers, 
-  ArrowRight, 
-  Compass, 
-  Cpu, 
-  Calendar, 
-  MapPin, 
-  Sparkles,
+
   Terminal,
   Zap,
   Radio,
@@ -19,13 +14,26 @@ import {
   ChevronRight,
   X as CloseIcon,
   Clock,
-  ShieldCheck,
+
   CheckCircle2
 } from "lucide-react";
 
+interface CompetitionEvent {
+  title: string;
+  category: string;
+  tag: string;
+  prize: string;
+  teams: string;
+  timeline: string;
+  venue: string;
+  desc: string;
+  rules: string[];
+  icon: React.ComponentType<{ className?: string }>;
+}
+
 export default function Homepage() {
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [activeModalEvent, setActiveModalEvent] = useState<any | null>(null);
+  const [activeModalEvent, setActiveModalEvent] = useState<CompetitionEvent | null>(null);
 
   const categories = [
     { id: "all", label: "All Competitions" },

@@ -3,14 +3,10 @@
 import { useState } from "react";
 import TechfestHUD from "@/components/TechfestHUD/TechfestHUD";
 import {
-  Clock,
   MapPin,
-  Calendar,
   Sparkles,
   ChevronRight,
   X as CloseIcon,
-  Tag,
-  CheckCircle2,
   CalendarPlus,
 } from "lucide-react";
 
@@ -363,7 +359,7 @@ export default function SchedulePage() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-tech text-[10px] px-3 py-1 rounded-full bg-yellow-500/20 border border-yellow-500/40 text-yellow-300 flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-yellow-400" />
-                    <span>{activeSession.dayLabel} // {activeSession.track}</span>
+                    <span>{`${activeSession.dayLabel} // ${activeSession.track}`}</span>
                   </span>
 
                   <button

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import TechfestHUD from "@/components/TechfestHUD/TechfestHUD";
 import {
   Cpu,
@@ -31,7 +30,7 @@ interface Workshop {
   prototypeNotice: string;
   modules: string[];
   prerequisites: string[];
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
 }
 
 const WORKSHOPS: Workshop[] = [
@@ -262,11 +261,9 @@ export default function WorkshopsPage() {
 
         {/* Workshop Cards Grid - Framed Inside Provided Yellow Cyber Frame */}
         <div id="workshops-grid" className="scroll-mt-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
-          {filteredWorkshops.map((workshop) => {
-            const Icon = workshop.icon;
-            return (
-              <div
-                key={workshop.id}
+          {filteredWorkshops.map((workshop) => (
+            <div
+              key={workshop.id}
                 onClick={() => setActiveModalWorkshop(workshop)}
                 className="group relative w-full aspect-[768/1024] flex flex-col justify-between cursor-pointer transition-all duration-300 hover:-translate-y-2 select-none"
               >
@@ -346,8 +343,7 @@ export default function WorkshopsPage() {
                   </div>
                 </div>
               </div>
-            );
-          })}
+            ))}
         </div>
 
         {/* Global Prototype Subscribe / Notice Section */}
