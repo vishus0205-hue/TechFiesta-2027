@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 54" width="120" height="54" fill="none">
+  <defs>
+    <!-- Crisp Outer Glow for Perfect Contrast Against Any Background -->
+    <filter id="logo-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ffffff" flood-opacity="0.6" />
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#00d4ff" flood-opacity="0.45" />
+      <feDropShadow dx="0" dy="4" stdDeviation="16" flood-color="#7928ca" flood-opacity="0.3" />
+    </filter>
+
+    <linearGradient id="logo-fill" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="60%" stop-color="#f8fafc" />
+      <stop offset="100%" stop-color="#e0f2fe" />
+    </linearGradient>
+  </defs>
+
+  <g filter="url(#logo-glow)">
+    <!-- Stylized Futuristic 'T' -->
+    <path 
+      d="M 8 8 L 48 8 L 44.5 17 L 32 17 L 24 44 L 11 44 L 19 17 L 4.5 17 Z" 
+      fill="url(#logo-fill)"
+      stroke="#ffffff"
+      stroke-width="0.8"
+      stroke-linejoin="round"
+    />
+
+    <!-- Stylized Futuristic 'F' -->
+    <path 
+      d="M 50 8 L 86 8 L 82.5 17 L 64 17 L 61.5 25.5 L 79 25.5 L 76 34 L 59 34 L 56 44 L 43 44 Z" 
+      fill="url(#logo-fill)"
+      stroke="#ffffff"
+      stroke-width="0.8"
+      stroke-linejoin="round"
+    />
+
+    <!-- Trademark 'TM' Symbol -->
+    <text 
+      x="89" 
+      y="15" 
+      font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" 
+      font-size="9" 
+      font-weight="900" 
+      font-style="italic" 
+      fill="#ffffff"
+      letter-spacing="0.5"
+    >TM</text>
+  </g>
+</svg>
